@@ -2,9 +2,8 @@ FROM dockerfile/java:oracle-java8
 
 ENV ES_PKG_NAME elasticsearch-1.2.1
 
-# Install ElasticSearch.
 RUN \
-  wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-$ES_VERSION.tar.gz -O - | tar zxvf - && \
+  wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/$ES_PKG_NAME.tar.gz -O - | tar zxvf - && \
   mv /$ES_PKG_NAME /elasticsearch && \
   /elasticsearch/bin/plugin -install royrusso/elasticsearch-HQ && \
   /elasticsearch/bin/plugin -install mobz/elasticsearch-head
